@@ -1,0 +1,80 @@
+body{
+    background-color: rgb(40, 40, 40);
+    margin: 30px;
+}
+
+h1, h2, h3, h4, h5, h6{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.carousel {
+    width: 100%;
+    overflow-x: auto;
+    margin: 3em auto;
+    display: flex;
+    gap: 1em;
+    scroll-behavior: smooth;
+    anchor-name: --carousel;
+    scroll-snap-type: x mandatory;
+
+}
+
+.card a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.carousel::-webkit-scrollbar{
+    display: none;
+}
+
+.carousel::scroll-button(right), .carousel::scroll-button(left) {
+    content: '→';
+    border:none;
+    background-color: hsl(195, 100%, 30%);
+    color: white;
+    font-size: 3em;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    padding-bottom: .1em;
+    cursor: pointer;
+    position: fixed;
+    position-anchor: --carousel;
+    position-area: right center;
+    translate: -50%;
+}
+
+.carousel::scroll-button(left){
+    content: '←';
+    position-area: left center;
+    translate: 50%;
+}
+
+.carousel::scroll-button(right):disabled, .carousel::scroll-button(left):disabled{
+    opacity: 0.5;
+    cursor: auto;
+}
+
+.card{
+    scroll-snap-align: start;
+    flex: 0 0 20em;
+    height: 12em;
+    background-color: rgb(62, 62, 62);
+    padding: 1em;
+    border-radius: .5em;
+    text-align: center;
+    align-content: center;
+    aspect-ratio: 5/3;
+}
+
+@media(max-width: 500px) {
+    .card{
+        flex: 0 0 15em;
+    }
+}
+
